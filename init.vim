@@ -1,16 +1,7 @@
 
 call plug#begin("~/.config/nvim/plugged")
-Plug 'leafgarland/typescript-vim'
-Plug 'posva/vim-vue'
 Plug 'houtsnip/vim-emacscommandline'
-Plug 'uarun/vim-protobuf'
-Plug 'digitaltoad/vim-pug'
-Plug 'claudiocabral/scvim', { 'branch': 'vim_terminal' }
-Plug 'tikhomirov/vim-glsl'
-Plug 'rust-lang/rust.vim'
-Plug 'chrisbra/csv.vim'
-Plug 'skywind3000/asyncrun.vim'
-Plug 'vhdirk/vim-cmake'
+Plug 'supercollider/scvim',
 call plug#end()
 
 syntax on
@@ -26,17 +17,15 @@ let g:scTerminalBuffer = "on"
 
 
 nnoremap ; :
+nnoremap H :bp<CR>
+nnoremap L :bn<CR>
 nnoremap <C-c> <C-c>
 nnoremap <C-j> :w \| make<CR>
-nnoremap <C-k> :w \| make flash<CR>
 inoremap jk <Esc>
 
-autocmd FileType typescript :set makeprg=yarn\ dev
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType scss setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType vue syntax sync fromstart
-autocmd FileType rust :set makeprg=make
 if (has('nvim'))
   augroup custom_term
     autocmd!
